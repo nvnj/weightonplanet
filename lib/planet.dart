@@ -19,7 +19,7 @@ class _PlanetState extends State<Planet> {
   TextEditingController _weight = new TextEditingController();
   double _newWeight = 0.0;
   String dropdownvalue = "Earth";
-  String formattedOutput= "";
+  String formattedOutput = "";
   FocusNode myfocusNode = new FocusNode();
 
   @override
@@ -34,12 +34,7 @@ class _PlanetState extends State<Planet> {
     // TODO: implement dispose
     myfocusNode.dispose();
     super.dispose();
-
   }
-
-
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -48,49 +43,50 @@ class _PlanetState extends State<Planet> {
         title: Text("Weight on Planet"),
         backgroundColor: Colors.deepOrange,
         centerTitle: true,
-
       ),
       body: Container(
         color: Colors.deepOrange,
         child: ListView(
           children: <Widget>[
-            Padding(padding: EdgeInsets.all(10.0),),
-            Image.asset("assets/$dropdownvalue.png", height: 200.0,
+            Padding(
+              padding: EdgeInsets.all(10.0),
+            ),
+            Image.asset(
+              "assets/$dropdownvalue.png",
+              height: 200.0,
               width: 200.0,
-              fit: BoxFit.fitHeight,),
+              fit: BoxFit.fitHeight,
+            ),
             Container(
               padding: EdgeInsets.all(20.0),
               alignment: Alignment.center,
               child: Column(
-
                 children: <Widget>[
                   TextFormField(
-
                     controller: _weight,
-
                     focusNode: myfocusNode,
                     textInputAction: TextInputAction.go,
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
-                        labelText: "Enter you weight on Earth",
-                        labelStyle: TextStyle(
-                          color: myfocusNode.hasFocus? Colors.black : Colors.black87
-                        ),
-                        focusColor: Colors.black87,
-                        focusedBorder: OutlineInputBorder(
+                      labelText: "Enter you weight on Earth",
+                      labelStyle: TextStyle(
+                          color: myfocusNode.hasFocus
+                              ? Colors.black
+                              : Colors.black87),
+                      focusColor: Colors.black87,
+                      focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: Colors.green,
-                          )
-                        ),
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide()
-                        ),
-                        hintText: "Weight in kilogram",
-                        hintStyle: TextStyle(color: Colors.black38),
-                        //icon: Icon(Icons.person)
+                        color: Colors.green,
+                      )),
+                      border: OutlineInputBorder(borderSide: BorderSide()),
+                      hintText: "Weight in kilogram",
+                      hintStyle: TextStyle(color: Colors.black38),
+                      //icon: Icon(Icons.person)
                     ),
                   ),
-                  Padding(padding: EdgeInsets.all(10.0),),
+                  Padding(
+                    padding: EdgeInsets.all(10.0),
+                  ),
                   DropdownButton(
                       value: dropdownvalue,
                       iconSize: 30.0,
@@ -108,76 +104,68 @@ class _PlanetState extends State<Planet> {
                       ].map<DropdownMenuItem<String>>((String value) {
                         return DropdownMenuItem<String>(
                           value: value,
-
-                          child: Text(value,style: TextStyle(fontSize: 20.0),),
+                          child: Text(
+                            value,
+                            style: TextStyle(fontSize: 20.0),
+                          ),
                         );
                       }).toList(),
                       onChanged: (String newValue) {
                         dropdownvalue = newValue;
-                        if(_weight.text.isEmpty){
+                        if (_weight.text.isEmpty) {
                           formattedOutput = "Please enter your weight";
-                        }
-                        else {
+                          setState(() {});
+                        } else {
                           switch (dropdownvalue) {
-                            case "Mercury" :
+                            case "Mercury":
                               _newWeight = double.parse(_weight.text) * 0.38;
                               formattedOutput =
-                              "Your weight on Mercury is ${_newWeight
-                                  .toStringAsFixed(1)}";
+                                  "Your weight on Mercury is ${_newWeight.toStringAsFixed(1)}";
                               break;
-                            case "Venus" :
+                            case "Venus":
                               _newWeight = double.parse(_weight.text) * 0.91;
                               formattedOutput =
-                              "Your weight on Venus is ${_newWeight
-                                  .toStringAsFixed(1)}";
+                                  "Your weight on Venus is ${_newWeight.toStringAsFixed(1)}";
                               break;
-                            case "Earth" :
+                            case "Earth":
                               _newWeight = double.parse(_weight.text);
                               formattedOutput =
-                              "Your weight on Earth is ${_newWeight
-                                  .toStringAsFixed(1)}";
+                                  "Your weight on Earth is ${_newWeight.toStringAsFixed(1)}";
                               break;
-                            case "Mars" :
+                            case "Mars":
                               _newWeight = double.parse(_weight.text) * 0.38;
                               formattedOutput =
-                              "Your weight on Mars is ${_newWeight
-                                  .toStringAsFixed(1)}";
+                                  "Your weight on Mars is ${_newWeight.toStringAsFixed(1)}";
                               break;
-                            case "Jupiter" :
+                            case "Jupiter":
                               _newWeight = double.parse(_weight.text) * 2.34;
                               formattedOutput =
-                              "Your weight on Jupiter is ${_newWeight
-                                  .toStringAsFixed(1)}";
+                                  "Your weight on Jupiter is ${_newWeight.toStringAsFixed(1)}";
                               break;
-                            case "Saturn" :
+                            case "Saturn":
                               _newWeight = double.parse(_weight.text) * 1.06;
                               formattedOutput =
-                              "Your weight on Saturn is ${_newWeight
-                                  .toStringAsFixed(1)}";
+                                  "Your weight on Saturn is ${_newWeight.toStringAsFixed(1)}";
                               break;
-                            case "Uranus" :
+                            case "Uranus":
                               _newWeight = double.parse(_weight.text) * 0.92;
                               formattedOutput =
-                              "Your weight on Uranus is ${_newWeight
-                                  .toStringAsFixed(1)}.";
+                                  "Your weight on Uranus is ${_newWeight.toStringAsFixed(1)}.";
                               break;
-                            case "Neptune" :
+                            case "Neptune":
                               _newWeight = double.parse(_weight.text) * 1.19;
                               formattedOutput =
-                              "Your weight on Neptune is ${_newWeight
-                                  .toStringAsFixed(1)}";
+                                  "Your weight on Neptune is ${_newWeight.toStringAsFixed(1)}";
                               break;
-                            case "Pluto" :
+                            case "Pluto":
                               _newWeight = double.parse(_weight.text) * 0.06;
                               formattedOutput =
-                              "Your weight on Pluto is ${_newWeight
-                                  .toStringAsFixed(1)}";
+                                  "Your weight on Pluto is ${_newWeight.toStringAsFixed(1)}";
                               break;
                             default:
                               _newWeight = double.parse(_weight.text);
                               formattedOutput =
-                              "Your weight on Earth is ${_newWeight
-                                  .toStringAsFixed(1)}";
+                                  "Your weight on Earth is ${_newWeight.toStringAsFixed(1)}";
                               break;
                           }
                           setState(() {
@@ -185,22 +173,21 @@ class _PlanetState extends State<Planet> {
                           });
                         }
                       }),
-
-                  Padding(padding: EdgeInsets.all(10.0),),
+                  Padding(
+                    padding: EdgeInsets.all(10.0),
+                  ),
                   Text(
-                    _weight.text.toString().isEmpty? "Please enter the weight" : formattedOutput + " kg",
+                    _weight.text.toString().isEmpty
+                        ? "Please enter the weight"
+                        : formattedOutput + " kg",
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 20.0,
-
                     ),
-
                   )
-
                 ],
               ),
             )
-
           ],
         ),
       ),
