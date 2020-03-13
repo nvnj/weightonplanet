@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # weight_on_other_planet
 
 A Flutter application to check your weight on different planets.
@@ -14,3 +15,6 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+=======
+# weight-on-planet-app
+>>>>>>> b1775b124c775db702fff7733ba3700521af6db4
